@@ -1417,7 +1417,7 @@ export function registerTools(
     async (a) =>
       runTool(async () => {
         const series = await core.getBars({ symbol: a.symbol, bars: a.bars ?? 500, from: a.from, to: a.to });
-        const specs = (a.strategies ?? PRESET_IDS).map((id) => {
+        const specs = (a.strategies ?? PRESET_IDS).map((id: (typeof PRESET_IDS)[number]) => {
           const spec = presetSpec(id);
           if (a.stop_loss_pct !== undefined) spec.stopLossPct = a.stop_loss_pct;
           if (a.take_profit_pct !== undefined) spec.takeProfitPct = a.take_profit_pct;
@@ -1881,7 +1881,7 @@ export function registerTools(
     {
       name: z.string().describe("Workflow name from workflow_list, e.g. deep_dive"),
       input: z
-        .record(z.unknown())
+        .record(z.string(), z.unknown())
         .optional()
         .describe("Inputs for the workflow, e.g. { \"symbol\": \"BBRI\" }"),
     },

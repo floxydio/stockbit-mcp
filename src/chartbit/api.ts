@@ -394,7 +394,7 @@ export async function getChartDrawings(query: DrawingsQuery = {}): Promise<Chart
 /* ------------------------------------ templates ------------------------------------ */
 
 const NamedListResponse = z
-  .object({ data: z.union([z.array(z.record(z.unknown())), z.record(z.unknown())]).nullable().optional() })
+  .object({ data: z.union([z.array(z.record(z.string(), z.unknown())), z.record(z.string(), z.unknown())]).nullable().optional() })
   .passthrough();
 
 /** Chart templates, study templates and drawing templates — three lists, one shape. */

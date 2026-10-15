@@ -120,7 +120,7 @@ interface Rowset {
   payloadKeys: string[];
 }
 
-const RowArray = z.array(z.record(z.unknown()));
+const RowArray = z.array(z.record(z.string(), z.unknown()));
 
 function rowsOf(payload: unknown, context: string): Rowset {
   if (payload === null || payload === undefined) return { rows: [], from: null, payloadKeys: [] };

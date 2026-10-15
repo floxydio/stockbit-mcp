@@ -253,7 +253,7 @@ export function registerChartbitTools(define: Definer): void {
     {
       symbol: z.string().describe("IDX ticker, e.g. BBRI"),
       annotations: z
-        .array(z.record(z.unknown()))
+        .array(z.record(z.string(), z.unknown()))
         .describe(
           'Annotations: {kind:"level",price,label?} | {kind:"zone",from,to,label?} | ' +
             '{kind:"trend",from_date,from_price,to_date,to_price,label?} | ' +

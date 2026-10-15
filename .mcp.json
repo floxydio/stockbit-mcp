@@ -7,7 +7,7 @@
       ],
       "env": {
         "STOCKBIT_MCP_TRANSPORT": "stdio",
-        "STOCKBIT_TOOLS": "core,chartbit,virtual"
+        "STOCKBIT_TOOLS": "all"
       }
     }
   }

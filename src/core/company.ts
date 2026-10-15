@@ -865,7 +865,7 @@ const OVERVIEW_FIELDS = ["indexes", "catalogs", "uma", "notation", "corp_action"
 const ELIGIBILITY_KEY_RE = /margin|day[\s_-]?trade|daytrade/i;
 
 const OverviewResponse = z
-  .object({ data: z.record(z.unknown()).nullable().optional() })
+  .object({ data: z.record(z.string(), z.unknown()).nullable().optional() })
   .passthrough();
 
 export interface CompanyOverview {
